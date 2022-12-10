@@ -8,7 +8,7 @@ function CheckForTick() --Actual code
 				local Prop = game.ReplicatedStorage.State.Voting.Enabled --Directory to the skip
 				Prop:GetPropertyChangedSignal("Value"):Connect(function() --Credits to mm for the autoskip script
 				if Prop.Value then --Checks if the skip GUI is present (or if the wave can be skipped)
-				if ToggleLocalBecauseImLazy.Text == "✓" then --Checks if it's on
+				if ActualDirectory.Text == "✓" then --Checks if it's on
  				game.ReplicatedStorage.RemoteEvent:FireServer("Waves","Skip") --Skips the wave
 			end
 		end
