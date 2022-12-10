@@ -5,15 +5,14 @@ local ToggleLocalBecauseImLazy = game.CoreGui.ScreenGui.Container["Toggleable Au
 local ActualDirectory = ToggleLocalBecauseImLazy.Frame["Auto skip"].Checkmark --Directory to the toggle
 
 function CheckForTick() --Actual code
-					local Prop = game.ReplicatedStorage.State.Voting.Enabled --Directory to the skip
-					Prop:GetPropertyChangedSignal("Value"):Connect(function() --Credits to mm for the autoskip script
-   					if Prop.Value then --Checks if the skip GUI is present (or if the wave can be skipped)
-					if ToggleLocalBecauseImLazy.Text == "✓" then --Checks if it's on
-   					game.ReplicatedStorage.RemoteEvent:FireServer("Waves","Skip") --Skips the wave
-					end
-				end
+				local Prop = game.ReplicatedStorage.State.Voting.Enabled --Directory to the skip
+				Prop:GetPropertyChangedSignal("Value"):Connect(function() --Credits to mm for the autoskip script
+				if Prop.Value then --Checks if the skip GUI is present (or if the wave can be skipped)
+				if ToggleLocalBecauseImLazy.Text == "✓" then --Checks if it's on
+ 				game.ReplicatedStorage.RemoteEvent:FireServer("Waves","Skip") --Skips the wave
 			end
 		end
 	end)
 end
-ToggleLocalBecauseImLazy:GetPropertyChangedSignal("Text"):Connect(CheckForTick) --Checks if the checkbox is ticked or not, then runs the script from line 7
+
+ActualDirectory:GetPropertyChangedSignal("Text"):Connect(CheckForTick) --Checks if the checkbox is ticked or not, then runs the script from line 7
